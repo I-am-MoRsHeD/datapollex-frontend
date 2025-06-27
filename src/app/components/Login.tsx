@@ -52,9 +52,9 @@ const Login = () => {
                                 placeholder="Enter email ..."
                             />
                             {errors.email && (
-                                <div className="text-red-500 text-xs mt-1">
+                                <span className="text-red-500 text-xs mt-1">
                                     {errors.email.message}
-                                </div>
+                                </span>
                             )}
                         </div>
                         <div>
@@ -70,9 +70,9 @@ const Login = () => {
                                 placeholder="Enter password ..."
                             />
                             {errors.password && (
-                                <div className="text-red-500 text-xs mt-1">
+                                <span className="text-red-500 text-xs mt-1">
                                     {errors.password.message}
-                                </div>
+                                </span>
                             )}
                         </div>
                         <div className='mt-8'>
