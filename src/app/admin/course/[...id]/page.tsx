@@ -43,7 +43,7 @@ const CourseDetailsPage = () => {
                 Go back
             </Link>
             {loading ? <Spinner className='h-10 w-10' /> : (
-                <div className='flex flex-row gap-5 w-full mt-5 shadow-md rounded-xl shadow-white'>
+                <div className='flex flex-col lg:flex-row gap-5 w-full mt-5 shadow-md rounded-xl shadow-white'>
                     {course?.thumbnail ? <Image src={course?.thumbnail} alt="placeholder" width={700} height={700} /> : <Spinner className='h-10 w-10' />}
                     <div className='space-y-2 w-full'>
                         <div className='flex flex-row justify-between items-center'>

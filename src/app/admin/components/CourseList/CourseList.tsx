@@ -47,7 +47,7 @@ const CourseList = () => {
     };
 
     return (
-        <div className="my-5 grid grid-cols-2 gap-4">
+        <div className="my-5 grid grid-cols-1 lg:grid-cols-2 gap-4">
             {isLoading ? (
                 <div className="flex flex-col justify-center items-center h-full col-span-2 text-xl font-bold">Loading....</div>
             ) : (
