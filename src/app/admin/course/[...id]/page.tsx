@@ -7,10 +7,15 @@ import Image from 'next/image';
 import Spinner from '@/app/components/Spinner';
 import Header from '@/app/shared/Header';
 import Link from 'next/link';
+import { CiCirclePlus } from 'react-icons/ci';
+import Modal from '@/app/shared/Modal';
+import AddModuleForm from '../../components/AddModuleForm/AddModuleForm';
+import ModuleList from '../../components/ModuleList/ModuleList';
 
 const CourseDetailsPage = () => {
     const { id } = useParams();
     const [loading, setLoading] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const [course, setCourse] = useState<ICourse | null>(null);
 
@@ -49,6 +54,22 @@ const CourseDetailsPage = () => {
                     </div>
                 </div>
             )}
+            {/* module section */}
+            <div className='flex flex-row justify-between items-center rounded-b border-b border-gray-300'>
+                <h1>Module List</h1>
+                <button onClick={() => setIsModalOpen(true)} className='flex flex-col items-center gap-1 cursor-pointer'><CiCirclePlus className='w-10 h-10' />Add Module </button>
+            </div>
+            {
+                isModalOpen && <Modal
+                    isOpen={isModalOpen}
+                    onClose={() => setIsModalOpen(false)}
+                >
+                    <AddModuleForm courseId={id?.[0] as string} setIsModalOpen={setIsModalOpen} />
+                </Modal>
+            }
+            <div>
+                <ModuleList courseId={id?.[0] as string} />
+            </div>
         </div>
     );
 };
